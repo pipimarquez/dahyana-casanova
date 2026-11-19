@@ -978,6 +978,20 @@ a {
   justify-content: space-between;
   align-items: flex-end;
   gap: 24px;
+  container-type: inline-size;
+  min-width: 0;
+}
+
+.head-row .page-title {
+  min-width: 0;
+  max-width: 100%;
+  font-size: clamp(28px, 9vw, 96px);
+}
+
+@supports (font-size: 1cqi) {
+  .head-row .page-title {
+    font-size: clamp(28px, 10.4cqi, 96px);
+  }
 }
 
 .head-row .mark,
