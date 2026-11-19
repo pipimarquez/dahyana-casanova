@@ -38,23 +38,7 @@ const observer = new IntersectionObserver(
 
 reveals.forEach((node) => observer.observe(node));
 
-const watermark = document.querySelector(".watermark");
-const works = document.querySelector(".works");
-
-function moveWatermark() {
-  const rect = works.getBoundingClientRect();
-  const view = window.innerHeight;
-  const progress = (view - rect.top) / (view + rect.height);
-  const shift = (progress - 0.35) * -180;
-  watermark.style.transform = `translate(-50%, ${shift}px)`;
-}
-
 const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-if (!motion) {
-  moveWatermark();
-  window.addEventListener("scroll", moveWatermark, { passive: true });
-}
 
 const photos = document.querySelectorAll(".split-photo img, .portrait img");
 
