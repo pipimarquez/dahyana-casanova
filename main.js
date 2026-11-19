@@ -62,7 +62,7 @@ if (!motion) {
 
 const finePointer = window.matchMedia("(pointer: fine)").matches;
 
-if (finePointer && !motion) {
+if (finePointer) {
   const cursor = document.createElement("div");
   cursor.className = "cursor-logo";
   cursor.setAttribute("aria-hidden", "true");
@@ -77,10 +77,12 @@ if (finePointer && !motion) {
   let targetX = 0;
   let targetY = 0;
   let shown = false;
+  const ease = motion ? 1 : 0.18;
 
   window.addEventListener(
     "pointermove",
     (event) => {
+      if (event.pointerType && event.pointerType !== "mouse") return;
       targetX = event.clientX;
       targetY = event.clientY;
       if (!shown) {
@@ -93,14 +95,9 @@ if (finePointer && !motion) {
     { passive: true }
   );
 
-  document.addEventListener("pointerleave", () => {
-    shown = false;
-    cursor.style.opacity = "0";
-  });
-
   function follow() {
-    x += (targetX - x) * 0.18;
-    y += (targetY - y) * 0.18;
+    x += (targetX - x) * ease;
+    y += (targetY - y) * ease;
     cursor.style.transform = `translate(${x}px, ${y}px)`;
     requestAnimationFrame(follow);
   }
