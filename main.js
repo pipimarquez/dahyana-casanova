@@ -77,7 +77,9 @@ if (finePointer) {
   let targetX = 0;
   let targetY = 0;
   let shown = false;
-  const ease = motion ? 1 : 0.18;
+  const ease = motion ? 1 : 0.1;
+  const offsetX = 56;
+  const offsetY = 48;
 
   window.addEventListener(
     "pointermove",
@@ -98,7 +100,7 @@ if (finePointer) {
   function follow() {
     x += (targetX - x) * ease;
     y += (targetY - y) * ease;
-    cursor.style.transform = `translate(${x}px, ${y}px)`;
+    cursor.style.transform = `translate(${x + offsetX}px, ${y + offsetY}px)`;
     requestAnimationFrame(follow);
   }
 
