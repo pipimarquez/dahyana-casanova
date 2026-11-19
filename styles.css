@@ -899,13 +899,321 @@ a {
   font-weight: 600;
 }
 
+.bleed-hero {
+  margin: 0;
+  height: clamp(460px, 62vw, 780px);
+  overflow: hidden;
+}
+
+.bleed-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.page-follow {
+  padding-top: 48px;
+}
+
+.head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.head-row .mark,
+.novia-photos .mark {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.editorial-copy {
+  max-width: 760px;
+  margin: 36px 0 72px;
+  color: #fdfef8;
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+}
+
+.editorial-copy p {
+  margin: 0 0 16px;
+}
+
+.kicker {
+  margin: 0 0 24px;
+  color: #999;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.editorial figure.portrait {
+  aspect-ratio: 2 / 3;
+}
+
+.editorial figure.full {
+  max-height: none;
+}
+
+.editorial figure.full img {
+  height: auto;
+}
+
+.project-band {
+  display: grid;
+  grid-template-columns: 0.75fr 1.1fr 0.75fr;
+  gap: 18px;
+  align-items: stretch;
+  min-height: 560px;
+  margin-top: 80px;
+}
+
+.project-band figure {
+  margin: 0;
+  min-height: 460px;
+  overflow: hidden;
+}
+
+.project-band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-band div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.project-band h2 {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 4vw, 40px);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.project-band p {
+  max-width: 360px;
+  margin: 0 0 28px;
+  color: #999;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.novia-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 20px;
+}
+
+.novia-photos {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding-bottom: 28px;
+}
+
+.novia-photos figure {
+  width: min(22vw, 230px);
+  margin: 0;
+  overflow: hidden;
+}
+
+.novia-photos figure:first-child {
+  height: 380px;
+}
+
+.novia-photos figure:last-of-type {
+  height: 290px;
+}
+
+.novia-photos figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.novia-photos .mark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 96px;
+  height: 96px;
+}
+
+.novia-intro,
+.include {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.novia-intro {
+  margin: 56px 0 80px;
+}
+
+.back {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: #fdfef8;
+  font-size: 12px;
+  letter-spacing: -0.04em;
+}
+
+.novia-intro .lead {
+  max-width: 640px;
+  margin: 0;
+  color: #fdfef8;
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.35;
+  letter-spacing: -0.05em;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 24px;
+}
+
+.facts p {
+  margin: 0;
+}
+
+.facts span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  letter-spacing: -0.04em;
+}
+
+.facts strong {
+  font-family: Raleway, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 12px 16px;
+  background: #fff;
+  color: #000;
+  font-family: Raleway, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.facts .solid {
+  grid-column: 1 / -1;
+}
+
+.include {
+  margin-top: 96px;
+}
+
+.include h2 {
+  margin: 8px 0 0;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.include .copy p {
+  margin: 0 0 14px;
+  color: #999;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.include .copy strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.accordion {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.accordion details {
+  padding: 26px 28px;
+  background: #151515;
+}
+
+.accordion summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion summary::after {
+  content: "›";
+  font-weight: 400;
+}
+
+.accordion details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.accordion p {
+  max-width: 70ch;
+  margin: 16px 0 0;
+  color: #999;
+}
+
 @media (max-width: 800px) {
   .page-hero,
   .story,
   .levels,
   .service-grid,
-  .editorial {
+  .editorial,
+  .novia-top,
+  .novia-intro,
+  .include,
+  .project-band {
     grid-template-columns: 1fr;
+  }
+
+  .novia-photos figure {
+    width: 46vw;
+    height: 240px;
+  }
+
+  .novia-photos figure:first-child,
+  .novia-photos figure:last-of-type {
+    height: 240px;
   }
 
   .editorial .wide {
