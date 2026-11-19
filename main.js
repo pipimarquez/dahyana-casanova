@@ -1,27 +1,31 @@
 const menu = document.querySelector("#site-menu");
 const toggle = document.querySelector(".menu-toggle");
 
-toggle.addEventListener("click", () => {
-  const open = menu.classList.toggle("is-open");
+function setMenu(open) {
+  menu.classList.toggle("is-open", open);
   toggle.setAttribute("aria-expanded", String(open));
   toggle.querySelector(".visually-hidden").textContent = open ? "Cerrar menú" : "Abrir menú";
+  document.body.classList.toggle("menu-open", open);
+}
+
+toggle.addEventListener("click", () => {
+  setMenu(toggle.getAttribute("aria-expanded") !== "true");
 });
 
 menu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
-  });
+  link.addEventListener("click", () => setMenu(false));
 });
 
 const play = document.querySelector(".play");
 const reel = document.querySelector(".reel-frame");
 
-play.addEventListener("click", () => {
-  const playing = play.getAttribute("aria-pressed") === "true";
-  play.setAttribute("aria-pressed", String(!playing));
-  reel.classList.toggle("is-playing", !playing);
-});
+if (play && reel) {
+  play.addEventListener("click", () => {
+    const playing = play.getAttribute("aria-pressed") === "true";
+    play.setAttribute("aria-pressed", String(!playing));
+    reel.classList.toggle("is-playing", !playing);
+  });
+}
 
 const reveals = document.querySelectorAll(".reveal");
 const observer = new IntersectionObserver(
