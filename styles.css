@@ -1131,6 +1131,15 @@ a {
   letter-spacing: -0.04em;
 }
 
+.novia-intro .lead + .lead {
+  margin-top: 16px;
+}
+
+.novia-intro > .solid {
+  align-self: center;
+  justify-self: start;
+}
+
 .novia-intro .lead {
   max-width: 640px;
   margin: 0;
