@@ -1314,6 +1314,27 @@ a {
   }
 }
 
+.cursor-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+}
+
+.cursor-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

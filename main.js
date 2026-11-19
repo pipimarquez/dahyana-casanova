@@ -59,3 +59,51 @@ if (!motion) {
   parallax();
   window.addEventListener("scroll", parallax, { passive: true });
 }
+
+const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+if (finePointer && !motion) {
+  const cursor = document.createElement("div");
+  cursor.className = "cursor-logo";
+  cursor.setAttribute("aria-hidden", "true");
+  const mark = document.createElement("img");
+  mark.src = "assets/logo.png";
+  mark.alt = "";
+  cursor.append(mark);
+  document.body.append(cursor);
+
+  let x = 0;
+  let y = 0;
+  let targetX = 0;
+  let targetY = 0;
+  let shown = false;
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      if (!shown) {
+        x = targetX;
+        y = targetY;
+        shown = true;
+        cursor.style.opacity = "1";
+      }
+    },
+    { passive: true }
+  );
+
+  document.addEventListener("pointerleave", () => {
+    shown = false;
+    cursor.style.opacity = "0";
+  });
+
+  function follow() {
+    x += (targetX - x) * 0.18;
+    y += (targetY - y) * 0.18;
+    cursor.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(follow);
+  }
+
+  follow();
+}
